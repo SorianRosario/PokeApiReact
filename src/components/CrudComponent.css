@@ -1,0 +1,91 @@
+/* src/components/CrudComponent.css */
+
+/* Estilos generales */
+.pokemon-container {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1000px; /* Aumentamos el tamaño máximo */
+  }
+  
+  .search-form {
+    margin-bottom: 20px;
+  }
+  
+  .search-form input {
+    padding: 10px;
+    margin-right: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-form button {
+    padding: 10px 15px;
+    background-color: #ffcb05;
+    border: 1px solid #f1c40f;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .search-form button:hover {
+    background-color: #f1c40f;
+    color: #fff;
+  }
+  
+  /* Estilo de error */
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Estilo de la lista de Pokémon */
+  .pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 20px; /* Espacio entre las cartas */
+    margin-top: 20px;
+  }
+  
+  .pokemon-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: left;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .pokemon-card:hover {
+    transform: translateY(-5px); /* Movimiento hacia arriba */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pokemon-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .pokemon-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .pokemon-card ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .pokemon-card li {
+    background-color: #e1e1e1;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
