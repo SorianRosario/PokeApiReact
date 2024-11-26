@@ -1,30 +1,28 @@
 // src/components/CrudComponent.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './CrudComponent.css'; // Asegúrate de importar el archivo CSS
+import './CrudComponent.css';
 
 const CrudComponent = () => {
-  const [pokemons, setPokemons] = useState([]);  // Array para guardar los 12 Pokémon o el Pokémon buscado
-  const [pokemonName, setPokemonName] = useState('');  // Estado para el nombre del Pokémon a buscar
+  const [pokemons, setPokemons] = useState([]);
+  const [pokemonName, setPokemonName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // URL base de la API de Pokémon
   const pokemonApiUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
-  // Función para obtener los primeros 12 Pokémon
   const fetchPokemons = async () => {
     setLoading(true);
     setError(null);
     try {
       const pokemonPromises = [];
-      // Hacemos solicitudes para los primeros 12 Pokémon
       for (let i = 1; i <= 12; i++) {
         pokemonPromises.push(axios.get(`${pokemonApiUrl}${i}`));
       }
-      // Esperamos a que todas las solicitudes se completen
+      
       const responses = await Promise.all(pokemonPromises);
-      // Guardamos los datos de los Pokémon
+      
       setPokemons(responses.map(response => response.data));
     } catch (err) {
       setError('Error al cargar los Pokémon');
@@ -39,7 +37,7 @@ const CrudComponent = () => {
     setError(null);
     try {
       const response = await axios.get(`${pokemonApiUrl}${name.toLowerCase()}`);
-      setPokemons([response.data]);  // Guardamos solo el Pokémon buscado
+      setPokemons([response.data]);
     } catch (err) {
       setError('Pokémon no encontrado');
     } finally {
@@ -49,7 +47,7 @@ const CrudComponent = () => {
 
   // Función que maneja el submit del formulario de búsqueda
   const handleSearch = (e) => {
-    e.preventDefault();  // Prevenir que la página se recargue
+    e.preventDefault();
     if (pokemonName) {
       fetchPokemonByName(pokemonName);
     }
@@ -72,7 +70,7 @@ const CrudComponent = () => {
           type="text"
           placeholder="Ingresa el nombre del Pokémon"
           value={pokemonName}
-          onChange={(e) => setPokemonName(e.target.value)} // Actualiza el nombre del Pokémon
+          onChange={(e) => setPokemonName(e.target.value)} 
         />
         <button type="submit">Buscar</button>
       </form>
